@@ -34,19 +34,12 @@ else
   exit 1
 fi
 
-java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples > score.txt
+java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples 
 
-grep -q "2 tests" score.txt
 if [[ $? -eq 0 ]]; then
     echo "ALL TESTS PASSES"
-fi
-grep -q "1 tests" score.txt
-if [[ $? -eq 0 ]]; then
-    echo "ONE TEST FAILED"
-fi
-grep -q "0 tests" score.txt
-if [[ $? -eq 0 ]]; then
-    "ALL TESTS FAILED"
 fi   
 ```
+![Image](main.png)
 
+Since my server was not able to run properly and grade my tests, I will be describing what my grader should have done in each line. The first two lines recieve the student submission repository and then we go into that folder. We then check if the file was present which we do through an if statement. We then go to see if the file compiles properly with the next if statement. After that we check to see if the tests pass. If it does, it will echo the above statement.  
